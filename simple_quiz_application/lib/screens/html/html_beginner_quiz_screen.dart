@@ -96,7 +96,7 @@ class HtmlBeginnerQuizState extends State<HtmlBeginnerQuiz> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'HTML Quiz',
+          'HTML Beginner Quiz',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),
@@ -155,7 +155,7 @@ class HtmlBeginnerQuizState extends State<HtmlBeginnerQuiz> {
                     ),
                   );
                 },
-                child: Text('Reset', style: TextStyle(fontSize: 20)),
+                child: Text('Reset', style: TextStyle(fontSize: 17)),
               ),
               SizedBox(width: 20),
               ElevatedButton(
@@ -181,24 +181,9 @@ class HtmlBeginnerQuizState extends State<HtmlBeginnerQuiz> {
                     ),
                   );
                 },
-                child: Text('Submit', style: TextStyle(fontSize: 20)),
+                child: Text('Submit', style: TextStyle(fontSize: 17)),
               ),
             ],
-          ),
-          SizedBox(height: 10),
-          Center(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                  vertical: 10,
-                ),
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Back', style: TextStyle(fontSize: 20)),
-            ),
           ),
           SizedBox(height: 10),
           Align(

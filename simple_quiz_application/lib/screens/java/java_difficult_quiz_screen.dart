@@ -113,120 +113,105 @@ class JavaDifficultQuizState extends State<JavaDifficultQuiz> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Java Quiz',
+          'Java Difficult Quiz',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),
         foregroundColor: Colors.white,
       ),
       body: Column(
-          children: [
-            Expanded(
-              child: SmoothListView.builder(
-                duration: Duration(seconds: 2),
-                itemCount: questions.length,
-                itemBuilder: (context, index) {
-                  return QuestionCard(
-                    questionData: questions[index],
-                    index: index,
-                    selectedAnswer: selectedAnswer[index],
-                    activeColor: activeColor[index],
-                    isSubmitted: _isSubmitted,
-                    onAnswerSelected: (value) {
-                      setState(() {
-                        selectedAnswer[index] = value;
-                      });
-                    },
+        children: [
+          Expanded(
+            child: SmoothListView.builder(
+              duration: Duration(seconds: 2),
+              itemCount: questions.length,
+              itemBuilder: (context, index) {
+                return QuestionCard(
+                  questionData: questions[index],
+                  index: index,
+                  selectedAnswer: selectedAnswer[index],
+                  activeColor: activeColor[index],
+                  isSubmitted: _isSubmitted,
+                  onAnswerSelected: (value) {
+                    setState(() {
+                      selectedAnswer[index] = value;
+                    });
+                  },
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _isSubmitted = false;
+                    javaDifficultMarks = 0;
+                    quizAttempts['javaDifficultQuiz'] = false;
+                    for (int i = 0; i < 10; i++) {
+                      selectedAnswer[i] = null;
+                      activeColor[i] = Colors.white;
+                    }
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Quiz Reset Successfully!!',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
                   );
                 },
+                child: Text('Reset', style: TextStyle(fontSize: 17)),
               ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _isSubmitted = false;
-                      javaDifficultMarks = 0;
-                      quizAttempts['javaDifficultQuiz'] = false;
-                      for (int i = 0; i < 10; i++) {
-                        selectedAnswer[i] = null;
-                        activeColor[i] = Colors.white;
-                      }
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        duration: Duration(seconds: 1),
-                        content: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Quiz Reset Successfully!!',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  child: Text('Reset', style: TextStyle(fontSize: 20)),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      quizAttempts['javaDifficultQuiz'] = true;
-                      _isSubmitted = true;
-                      submitQuiz();
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        duration: Duration(seconds: 1),
-                        content: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Quiz Submitted Successfully!!',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  child: Text('Submit', style: TextStyle(fontSize: 20)),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40,
-                    vertical: 10,
-                  ),
-                ),
+              SizedBox(width: 20),
+              ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    quizAttempts['javaDifficultQuiz'] = true;
+                    _isSubmitted = true;
+                    submitQuiz();
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Quiz Submitted Successfully!!',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 },
-                child: Text('Back', style: TextStyle(fontSize: 20)),
+                child: Text('Submit', style: TextStyle(fontSize: 17)),
               ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Your score is: $javaDifficultMarks',
+              style: TextStyle(fontSize: 20),
             ),
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Your score is: $javaDifficultMarks',
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
-            SizedBox(height: 20),
-          ],
+          ),
+          SizedBox(height: 20),
+        ],
       ),
     );
   }
