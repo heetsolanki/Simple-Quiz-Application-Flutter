@@ -1,4 +1,5 @@
 import 'package:simple_quiz_application/exports.dart';
+import 'package:simple_quiz_application/screens/marks.dart';
 
 void main() => runApp(
   ChangeNotifierProvider(create: (_) => ThemeNotifier(), child: const MyApp()),
@@ -91,6 +92,7 @@ class MyApp extends StatelessWidget {
         '/javaIntermediateQuiz': (context) => const JavaIntermediateQuiz(),
         '/javaDifficultQuiz': (context) => const JavaDifficultQuiz(),
         '/settings': (context) => const Settings(),
+        '/marks': (context) => const Marks(),
       },
     );
   }
@@ -105,7 +107,7 @@ class MainPage extends StatefulWidget {
 
 class MainPageState extends State<MainPage> {
   int _currentIndex = 0;
-  final List<Widget> _screens = const [Home(), Quiz(), Settings()];
+  final List<Widget> _screens = const [Home(), Quiz(), Marks(), Settings()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -123,25 +125,84 @@ class MainPageState extends State<MainPage> {
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),
         foregroundColor: Colors.white,
-        leading: Icon(Icons.quiz),
+        // leading: Icon(Icons.quiz),
+      ),
+      drawer: Drawer(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        width: 300,
+        elevation: 20.0,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Color.fromRGBO(0, 112, 116, 1)),
+              child: Text(
+                'Simple Quiz Application',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              selected: _currentIndex == 0,
+              onTap: () {
+                _onItemTapped(0);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Quiz'),
+              selected: _currentIndex == 1,
+              onTap: () {
+                _onItemTapped(1);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Marks'),
+              selected: _currentIndex == 2,
+              onTap: () {
+                _onItemTapped(2);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Settings'),
+              selected: _currentIndex == 3,
+              onTap: () {
+                _onItemTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: const Color.fromRGBO(0, 112, 116, 1),
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
-            label: 'Quiz',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   iconSize: 20,
+      //   unselectedItemColor: Colors.grey,
+      //   selectedItemColor: const Color.fromRGBO(0, 112, 116, 1),
+      //   currentIndex: _currentIndex,
+      //   onTap: _onItemTapped,
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.question_answer),
+      //       label: 'Quiz',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.leaderboard),
+      //       label: 'Marks',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.settings),
+      //       label: 'Settings',
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
