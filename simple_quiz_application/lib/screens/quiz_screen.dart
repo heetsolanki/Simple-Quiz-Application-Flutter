@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:simple_quiz_application/exports.dart';
 
 Map<String, bool> quizAttempts = {
   'javaBeginnerQuiz': false,

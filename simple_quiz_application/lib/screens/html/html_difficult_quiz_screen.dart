@@ -1,30 +1,114 @@
-import 'package:flutter/material.dart';
-import 'package:simple_quiz_application/screens/html/html_quiz_screen.dart';
-
-import '../quiz_screen.dart';
+import 'package:simple_quiz_application/exports.dart';
 
 class HtmlDifficultQuiz extends StatefulWidget {
   const HtmlDifficultQuiz({super.key});
-
   @override
   HtmlDifficultQuizState createState() => HtmlDifficultQuizState();
 }
 
 class HtmlDifficultQuizState extends State<HtmlDifficultQuiz> {
-  int? _questionOne;
-  int? _questionTwo;
-  int? _questionThree;
-  int? _questionFour;
-  int? _questionFive;
+  bool _isSubmitted = false;
+  List<int?> selectedAnswer = List.filled(10, null);
+  List<Color> activeColor = List.filled(10, Colors.white);
 
-  void checkAnswers() {
+  final List<Map<String, dynamic>> questions = [
+    {
+      'question': '1. Which HTML5 element is used to embed audio files?',
+      'options': ['<track>', '<media>', '<audio>', '<sound>'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question': '2. What is the purpose of the data-* attribute in HTML5?',
+      'options': [
+        'To validate form data',
+        'To link to external data sources',
+        'To store custom data private to the page or application',
+        'To define the data type of an element',
+      ],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '3. Which ARIA attribute improves accessibility for screen readers by describing an element’s purpose?',
+      'options': [
+        'aria-label',
+        'aria-hidden',
+        'aria-disabled',
+        'aria-required',
+      ],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '4. What does the <picture> element allow in HTML5?',
+      'options': [
+        'Embedding multiple images in a gallery',
+        'Providing multiple image sources for different devices',
+        'Creating animated images',
+        'Adding captions to images',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '5. Which attribute specifies the keyboard shortcut for an element?',
+      'options': ['shortcut', 'accesskey', 'key', 'hotkey'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question': '6. What is the role of the <template> tag in HTML5?',
+      'options': [
+        'To define reusable HTML content that can be cloned',
+        'To create a layout for the entire page',
+        'To store CSS styles',
+        'To embed external templates',
+      ],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question':
+          '7. Which HTML5 attribute is used to defer script execution until the page is fully loaded?',
+      'options': ['async', 'defer', 'load', 'wait'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question': '8. What does the itemprop attribute in microdata do?',
+      'options': [
+        'Defines the property of an item for structured data',
+        'Specifies the item’s CSS class',
+        'Links to an external item',
+        'Sets the item’s visibility',
+      ],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question':
+          '9. Which HTML5 element is used to define a scalar measurement, like a gauge or meter?',
+      'options': ['<meter>', '<progress>', '<range>', '<value>'],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '10. What is the purpose of the contenteditable attribute?',
+      'options': [
+        'To allow users to edit the content of an element',
+        'To specify the content’s language',
+        'To make an element draggable',
+        'To define the content’s alignment',
+      ],
+      'correctAnswer': 0, // a
+    },
+  ];
+
+  void submitQuiz() {
     setState(() {
-      quizAttempts['htmlDifficultQuiz'] = true;
-      if (_questionOne == 3) htmlDifficultMarks += 1;
-      if (_questionTwo == 3) htmlDifficultMarks += 1;
-      if (_questionThree == 2) htmlDifficultMarks += 1;
-      if (_questionFour == 1) htmlDifficultMarks += 1;
-      if (_questionFive == 2) htmlDifficultMarks += 1;
+      _isSubmitted = true;
+      for (int i = 0; i < selectedAnswer.length; i++) {
+        if (selectedAnswer[i] == questions[i]['correctAnswer']) {
+          htmlDifficultMarks++;
+          activeColor[i] = Colors.green;
+        } else {
+          activeColor[i] = Colors.red;
+        }
+      }
     });
   }
 
@@ -33,476 +117,120 @@ class HtmlDifficultQuizState extends State<HtmlDifficultQuiz> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'HTML Difficult Quiz',
+          'Html Quiz',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),
         foregroundColor: Colors.white,
       ),
-      body: Center(
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            //Question 1
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '1. Which tag is used to define metadata about an HTML document?',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<meta>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<info>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<data>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<head>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            // Question 2
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '2. What does the rel="noopener noreferrer" attribute do in anchor tags?',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Prevents the link from being indexed',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Prevents phishing attacks and improves security',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Hides the URL from the user',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Only allows internal links',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            //Question 3
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '3. Which element is used to embed an external web page within the current HTML document?',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<object>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<embed>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<iframe>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<include>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            //Question 4
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '4. What is the difference between <strong> and <b> tags?',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<strong> is deprecated, <b> is not',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<b> adds semantic meaning, <strong> does not',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<strong> is semantic, <b> is just stylistic',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'They are exactly the same',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            //Question 5
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '5. Which HTML5 element is used to define content that should be hidden until needed?',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<hidden>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<section>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<details>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        '<aside>',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
+      body: Column(
+        children: [
+          Expanded(
+            child: SmoothListView.builder(
+              duration: Duration(seconds: 2),
+              itemCount: questions.length,
+              itemBuilder: (context, index) {
+                return QuestionCard(
+                  questionData: questions[index],
+                  index: index,
+                  selectedAnswer: selectedAnswer[index],
+                  activeColor: activeColor[index],
+                  isSubmitted: _isSubmitted,
+                  onAnswerSelected: (value) {
                     setState(() {
-                      htmlDifficultMarks = 0;
-                      _questionOne = 0;
-                      _questionTwo = 0;
-                      _questionThree = 0;
-                      _questionFour = 0;
-                      _questionFive = 0;
+                      selectedAnswer[index] = value;
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        duration: Duration(seconds: 1),
-                        content: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Quiz Reset Successfully!!',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
                   },
-                  child: const Text('Reset', style: TextStyle(fontSize: 20)),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      checkAnswers();
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        duration: Duration(seconds: 1),
-                        content: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Quiz Submitted Successfully!!',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  child: const Text('Submit', style: TextStyle(fontSize: 20)),
-                ),
-              ],
+                );
+              },
             ),
-            SizedBox(height: 10),
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    _isSubmitted = false;
+                    htmlDifficultMarks = 0;
+                    quizAttempts['htmlDifficultQuiz'] = false;
+                    for (int i = 0; i < 10; i++) {
+                      selectedAnswer[i] = null;
+                      activeColor[i] = Colors.white;
+                    }
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Quiz Reset Successfully!!',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 },
-                child: Text('Back', style: TextStyle(fontSize: 20)),
+                child: Text('Reset', style: TextStyle(fontSize: 20)),
               ),
-            ),
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Your score is: $htmlDifficultMarks',
-                style: const TextStyle(fontSize: 20),
+              SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    quizAttempts['htmlDifficultQuiz'] = true;
+                    _isSubmitted = true;
+                    submitQuiz();
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Quiz Submitted Successfully!!',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                child: Text('Submit', style: TextStyle(fontSize: 20)),
               ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 10,
+                ),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Back', style: TextStyle(fontSize: 20)),
             ),
-            const SizedBox(height: 30),
-          ],
-        ),
+          ),
+          SizedBox(height: 10),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Your score is: $htmlDifficultMarks',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          SizedBox(height: 20),
+        ],
       ),
     );
   }

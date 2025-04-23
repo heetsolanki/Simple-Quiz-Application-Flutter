@@ -1,30 +1,109 @@
-import 'package:flutter/material.dart';
-
-import '../quiz_screen.dart';
-import 'java_quiz_screen.dart';
+import 'package:simple_quiz_application/exports.dart';
 
 class JavaIntermediateQuiz extends StatefulWidget {
   const JavaIntermediateQuiz({super.key});
-
   @override
   JavaIntermediateQuizState createState() => JavaIntermediateQuizState();
 }
 
 class JavaIntermediateQuizState extends State<JavaIntermediateQuiz> {
-  int? _questionOne;
-  int? _questionTwo;
-  int? _questionThree;
-  int? _questionFour;
-  int? _questionFive;
+  bool _isSubmitted = false;
+  List<int?> selectedAnswer = List.filled(10, null);
+  List<Color> activeColor = List.filled(10, Colors.white);
 
-  void checkAnswers() {
+  final List<Map<String, dynamic>> questions = [
+    {
+      'question': '1. What is the purpose of the final keyword in Java?',
+      'options': [
+        'To end a program',
+        'To define a loop',
+        'To declare a variable that cannot be changed',
+        'To mark a method as private',
+      ],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '2. Which of these is a correct way to create an array in Java?',
+      'options': [
+        'int[] arr = new int[5];',
+        'int arr[] = new int[];',
+        'int arr = new int[5];',
+        'array int arr[5];',
+      ],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '3. What does the this keyword refer to in Java?',
+      'options': [
+        'The current class',
+        'The current method',
+        'The parent class',
+        'The current object',
+      ],
+      'correctAnswer': 3, // d
+    },
+    {
+      'question':
+          '4. Which exception is thrown when trying to access an array index that does not exist?',
+      'options': [
+        'NullPointerException',
+        'ArrayIndexOutOfBoundsException',
+        'ClassCastException',
+        'IllegalArgumentException',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '5. What is the output of the following code: String s = "Hello"; s.concat(" World"); System.out.println(s);?',
+      'options': ['Hello World', 'Hello', 'World', 'Error'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '6. Which access modifier allows a method to be accessed only within the same class?',
+      'options': ['public', 'protected', 'private', 'default'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question': '7. What is the purpose of the super keyword in Java?',
+      'options': [
+        'To refer to the current object',
+        'To call a superclass’s constructor or method',
+        'To declare a static method',
+        'To create a new object',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question': '8. Which loop is guaranteed to execute at least once?',
+      'options': ['for', 'while', 'do-while', 'foreach'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '9. What is the output of the following code: int x = 10; x += 5; System.out.println(x);?',
+      'options': ['10', '5', '15', '50'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question': '10. Which keyword is used to inherit a class in Java?',
+      'options': ['implements', 'extends', 'inherits', 'super'],
+      'correctAnswer': 1, // b
+    },
+  ];
+  void submitQuiz() {
     setState(() {
-      quizAttempts['javaIntermediateQuiz'] = true;
-      if (_questionOne == 1) javaIntermediateMarks += 1;
-      if (_questionTwo == 2) javaIntermediateMarks += 1;
-      if (_questionThree == 2) javaIntermediateMarks += 1;
-      if (_questionFour == 1) javaIntermediateMarks += 1;
-      if (_questionFive == 3) javaIntermediateMarks += 1;
+      _isSubmitted = true;
+      for (int i = 0; i < selectedAnswer.length; i++) {
+        if (selectedAnswer[i] == questions[i]['correctAnswer']) {
+          javaIntermediateMarks++;
+          activeColor[i] = Colors.green;
+        } else {
+          activeColor[i] = Colors.red;
+        }
+      }
     });
   }
 
@@ -33,482 +112,120 @@ class JavaIntermediateQuizState extends State<JavaIntermediateQuiz> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Java Intermediate Quiz',
+          'Java Quiz',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),
         foregroundColor: Colors.white,
       ),
-      body: Center(
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            //Question 1
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '1. Which collection class stores unique elements only?',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'HashSet',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'ArrayList',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'LinkedList',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Vector',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionOne,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionOne = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            // Question 2
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '2. What is method overloading?',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Same method in parent and child class',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Multiple methods with the same name but different parameters',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Redefining a method',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'A method calling another method',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionTwo,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionTwo = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            //Question 3
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '3. What will the expression 10 / 3 return in Java?',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text('3.33', style: TextStyle(fontSize: 15)),
-                      value: 1,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text('3', style: TextStyle(fontSize: 15)),
-                      value: 2,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text('3.0', style: TextStyle(fontSize: 15)),
-                      value: 3,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Compilation error',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionThree,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionThree = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            //Question 4
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '4. Which keyword is used to inherit a class in Java?',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'extends',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'implements',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'inherits',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'super',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionFour,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFour = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            //Question 5
-            Card(
-              child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20, top: 10, right: 10),
-                      child: Text(
-                        '5. Which interface must be implemented to create a thread in Java?',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Callable',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 1,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Threadable',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 2,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Runnable',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 3,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                    RadioListTile(
-                      activeColor: activeColor,
-                      title: const Text(
-                        'Executer',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      value: 4,
-                      groupValue: _questionFive,
-                      onChanged: (value) {
-                        setState(() {
-                          _questionFive = value!;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
+      body: Column(
+        children: [
+          Expanded(
+            child: SmoothListView.builder(
+              duration: Duration(seconds: 2),
+              itemCount: questions.length,
+              itemBuilder: (context, index) {
+                return QuestionCard(
+                  questionData: questions[index],
+                  index: index,
+                  selectedAnswer: selectedAnswer[index],
+                  activeColor: activeColor[index],
+                  isSubmitted: _isSubmitted,
+                  onAnswerSelected: (value) {
                     setState(() {
-                      javaIntermediateMarks = 0;
-                      _questionOne = 0;
-                      _questionTwo = 0;
-                      _questionThree = 0;
-                      _questionFour = 0;
-                      _questionFive = 0;
+                      selectedAnswer[index] = value;
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        duration: Duration(seconds: 1),
-                        content: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Quiz Reset Successfully!!',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
                   },
-                  child: const Text('Reset', style: TextStyle(fontSize: 20)),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      checkAnswers();
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        duration: Duration(seconds: 1),
-                        content: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Quiz Submitted Successfully!!',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  child: const Text('Submit', style: TextStyle(fontSize: 20)),
-                ),
-              ],
+                );
+              },
             ),
-            SizedBox(height: 10),
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    _isSubmitted = false;
+                    javaIntermediateMarks = 0;
+                    quizAttempts['javaIntermediateQuiz'] = false;
+                    for (int i = 0; i < 10; i++) {
+                      selectedAnswer[i] = null;
+                      activeColor[i] = Colors.white;
+                    }
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Quiz Reset Successfully!!',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 },
-                child: Text('Back', style: TextStyle(fontSize: 20)),
+                child: Text('Reset', style: TextStyle(fontSize: 20)),
               ),
-            ),
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Your score is: $javaIntermediateMarks',
-                style: const TextStyle(fontSize: 20),
+              SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    quizAttempts['javaIntermediateQuiz'] = true;
+                    _isSubmitted = true;
+                    submitQuiz();
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Quiz Submitted Successfully!!',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                child: Text('Submit', style: TextStyle(fontSize: 20)),
               ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 10,
+                ),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Back', style: TextStyle(fontSize: 20)),
             ),
-            const SizedBox(height: 30),
-          ],
-        ),
+          ),
+          SizedBox(height: 10),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Your score is: $javaIntermediateMarks',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          SizedBox(height: 20),
+        ],
       ),
     );
   }

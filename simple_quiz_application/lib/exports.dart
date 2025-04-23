@@ -1,5 +1,6 @@
 export 'package:flutter/material.dart';
 export 'package:provider/provider.dart';
+export 'package:simple_quiz_application/questions_card.dart';
 export 'package:simple_quiz_application/screens/html/html_beginner_quiz_screen.dart';
 export 'package:simple_quiz_application/screens/html/html_difficult_quiz_screen.dart';
 export 'package:simple_quiz_application/screens/html/html_intermediate_quiz_screen.dart';

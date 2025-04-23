@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../quiz_screen.dart';
+import 'package:simple_quiz_application/exports.dart';
 
 int javaBeginnerMarks = 0;
 int javaIntermediateMarks = 0;
@@ -61,15 +59,33 @@ class JavaQuizState extends State<JavaQuiz> {
                                   'You have already attempted this quiz.\n\nYour Score is $javaBeginnerMarks',
                                 ),
                                 actions: [
+                                  // Cancel Button
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: Colors.redAccent,
+                                      padding: EdgeInsets.only(
+                                        top: 15,
+                                        bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
-                                      foregroundColor: Color.fromRGBO(
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  // Reattempt Button
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: const Color.fromRGBO(
                                         0,
                                         112,
                                         116,
@@ -78,13 +94,24 @@ class JavaQuizState extends State<JavaQuiz> {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                     ),
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/javaBeginnerQuiz',
+                                      );
+                                      setState(() {
+                                        javaBeginnerMarks = 0;
+                                        quizAttempts['javaBeginnerQuiz'] =
+                                            false;
+                                      });
                                     },
                                     child: const Text(
-                                      'OK',
+                                      'Reattempt',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -141,15 +168,33 @@ class JavaQuizState extends State<JavaQuiz> {
                                   'You have already attempted this quiz.\n\nYour Score is $javaIntermediateMarks',
                                 ),
                                 actions: [
+                                  // Cancel Button
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: Colors.redAccent,
+                                      padding: EdgeInsets.only(
+                                        top: 15,
+                                        bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
-                                      foregroundColor: Color.fromRGBO(
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  // Reattempt Button
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: const Color.fromRGBO(
                                         0,
                                         112,
                                         116,
@@ -158,14 +203,24 @@ class JavaQuizState extends State<JavaQuiz> {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                     ),
-
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/javaIntermediateQuiz',
+                                      );
+                                      setState(() {
+                                        javaIntermediateMarks = 0;
+                                        quizAttempts['javaIntermediateQuiz'] =
+                                            false;
+                                      });
                                     },
                                     child: const Text(
-                                      'OK',
+                                      'Reattempt',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -223,15 +278,33 @@ class JavaQuizState extends State<JavaQuiz> {
                                   'You have already attempted this quiz.\n\nYour Score is $javaDifficultMarks',
                                 ),
                                 actions: [
+                                  // Cancel Button
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: Colors.redAccent,
+                                      padding: EdgeInsets.only(
+                                        top: 15,
+                                        bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
-                                      foregroundColor: Color.fromRGBO(
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  // Reattempt Button
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: const Color.fromRGBO(
                                         0,
                                         112,
                                         116,
@@ -240,13 +313,24 @@ class JavaQuizState extends State<JavaQuiz> {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                     ),
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/javaDifficultQuiz',
+                                      );
+                                      setState(() {
+                                        javaDifficultMarks = 0;
+                                        quizAttempts['javaDifficultQuiz'] =
+                                            false;
+                                      });
                                     },
                                     child: const Text(
-                                      'OK',
+                                      'Reattempt',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),

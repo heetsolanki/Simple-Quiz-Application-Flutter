@@ -61,15 +61,33 @@ class HtmlQuizState extends State<HtmlQuiz> {
                                   'You have already attempted this quiz.\n\nYour Score is $htmlBeginnerMarks',
                                 ),
                                 actions: [
+                                  // Cancel Button
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: Colors.redAccent,
+                                      padding: EdgeInsets.only(
+                                        top: 15,
+                                        bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
-                                      foregroundColor: Color.fromRGBO(
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  // Reattempt Button
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: const Color.fromRGBO(
                                         0,
                                         112,
                                         116,
@@ -78,13 +96,24 @@ class HtmlQuizState extends State<HtmlQuiz> {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                     ),
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/htmlBeginnerQuiz',
+                                      );
+                                      setState(() {
+                                        htmlBeginnerMarks = 0;
+                                        quizAttempts['htmlBeginnerQuiz'] =
+                                            false;
+                                      });
                                     },
                                     child: const Text(
-                                      'OK',
+                                      'Reattempt',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -141,15 +170,33 @@ class HtmlQuizState extends State<HtmlQuiz> {
                                   'You have already attempted this quiz.\n\nYour Score is $htmlIntermediateMarks',
                                 ),
                                 actions: [
+                                  // Cancel Button
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: Colors.redAccent,
+                                      padding: EdgeInsets.only(
+                                        top: 15,
+                                        bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
-                                      foregroundColor: Color.fromRGBO(
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  // Reattempt Button
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: const Color.fromRGBO(
                                         0,
                                         112,
                                         116,
@@ -158,16 +205,24 @@ class HtmlQuizState extends State<HtmlQuiz> {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                     ),
                                     onPressed: () {
-                                      setState(() {
-                                        htmlBeginnerMarks = 0;
-                                      });
                                       Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/htmlIntermediateQuiz',
+                                      );
+                                      setState(() {
+                                        htmlIntermediateMarks = 0;
+                                        quizAttempts['htmlIntermediateQuiz'] =
+                                            false;
+                                      });
                                     },
                                     child: const Text(
-                                      'OK',
+                                      'Reattempt',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -225,15 +280,33 @@ class HtmlQuizState extends State<HtmlQuiz> {
                                   'You have already attempted this quiz.\n\nYour Score is $htmlDifficultMarks',
                                 ),
                                 actions: [
+                                  // Cancel Button
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: Colors.redAccent,
+                                      padding: EdgeInsets.only(
+                                        top: 15,
+                                        bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
-                                      foregroundColor: Color.fromRGBO(
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  // Reattempt Button
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      foregroundColor: const Color.fromRGBO(
                                         0,
                                         112,
                                         116,
@@ -242,13 +315,24 @@ class HtmlQuizState extends State<HtmlQuiz> {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         bottom: 15,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                     ),
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/htmlDifficultQuiz',
+                                      );
+                                      setState(() {
+                                        htmlDifficultMarks = 0;
+                                        quizAttempts['htmlDifficultQuiz'] =
+                                            false;
+                                      });
                                     },
                                     child: const Text(
-                                      'OK',
+                                      'Reattempt',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                       ),
