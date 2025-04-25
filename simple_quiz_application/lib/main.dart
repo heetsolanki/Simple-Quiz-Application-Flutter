@@ -1,5 +1,4 @@
 import 'package:simple_quiz_application/exports.dart';
-import 'package:simple_quiz_application/screens/marks.dart';
 
 void main() => runApp(
   ChangeNotifierProvider(create: (_) => ThemeNotifier(), child: const MyApp()),
@@ -134,43 +133,71 @@ class MainPageState extends State<MainPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Color.fromRGBO(0, 112, 116, 1)),
-              child: Text(
-                'Simple Quiz Application',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            SizedBox(
+              height: 130,
+              child: const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(0, 112, 116, 1),
+                ),
+                child: Text(
+                  'Simple Quiz Application',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
             ListTile(
-              title: const Text('Home'),
+              leading: Icon(Icons.home),
+              selectedColor: const Color.fromRGBO(0, 112, 116, 1),
+              title: const Text(
+                'Home',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
               selected: _currentIndex == 0,
               onTap: () {
                 _onItemTapped(0);
                 Navigator.pop(context);
               },
             ),
+            SizedBox(height: 7),
             ListTile(
-              title: const Text('Quiz'),
+              leading: Icon(Icons.quiz),
+              selectedColor: const Color.fromRGBO(0, 112, 116, 1),
+              title: const Text(
+                'Quiz',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
               selected: _currentIndex == 1,
               onTap: () {
                 _onItemTapped(1);
                 Navigator.pop(context);
               },
             ),
+            SizedBox(height: 7),
             ListTile(
-              title: const Text('Marks'),
+              leading: Icon(Icons.leaderboard),
+              selectedColor: const Color.fromRGBO(0, 112, 116, 1),
+              title: const Text(
+                'Marks',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
               selected: _currentIndex == 2,
               onTap: () {
                 _onItemTapped(2);
                 Navigator.pop(context);
               },
             ),
+            SizedBox(height: 7),
             ListTile(
-              title: const Text('Settings'),
+              leading: Icon(Icons.settings),
+              selectedColor: const Color.fromRGBO(0, 112, 116, 1),
+              title: const Text(
+                'Settings',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
               selected: _currentIndex == 3,
               onTap: () {
                 _onItemTapped(3);
