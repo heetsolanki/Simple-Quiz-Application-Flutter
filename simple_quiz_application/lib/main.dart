@@ -127,14 +127,19 @@ class MainPageState extends State<MainPage> {
         // leading: Icon(Icons.quiz),
       ),
       drawer: Drawer(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(12),
+            topRight: Radius.circular(12),
+          ),
+        ),
         width: 300,
         elevation: 20.0,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             SizedBox(
-              height: 130,
+              height: 150,
               child: const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(0, 112, 116, 1),
