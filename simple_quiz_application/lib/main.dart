@@ -1,4 +1,4 @@
-import 'package:simple_quiz_application/exports.dart';
+import 'exports.dart';
 
 void main() => runApp(
   ChangeNotifierProvider(create: (_) => ThemeNotifier(), child: const MyApp()),
