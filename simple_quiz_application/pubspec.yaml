@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   smooth_list_view: ^2.0.2
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,10 +54,30 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: custom_fonts/fonts/Poppins-Black.ttf
+        - asset: custom_fonts/fonts/Poppins-BlackItalic.ttf
+        - asset: custom_fonts/fonts/Poppins-Bold.ttf
+        - asset: custom_fonts/fonts/Poppins-BoldItalic.ttf
+        - asset: custom_fonts/fonts/Poppins-ExtraBold.ttf
+        - asset: custom_fonts/fonts/Poppins-ExtraBoldLight.ttf
+        - asset: custom_fonts/fonts/Poppins-ExtraLight.ttf
+        - asset: custom_fonts/fonts/Poppins-ExtraLightItalic.ttf
+        - asset: custom_fonts/fonts/Poppins-Italic.ttf
+        - asset: custom_fonts/fonts/Poppins-Light.ttf
+        - asset: custom_fonts/fonts/Poppins-LightItalic.ttf
+        - asset: custom_fonts/fonts/Poppins-Medium.ttf
+        - asset: custom_fonts/fonts/Poppins-MediumItalic.ttf
+        - asset: custom_fonts/fonts/Poppins-Regular.ttf
+        - asset: custom_fonts/fonts/Poppins-Semibold.ttf
+        - asset: custom_fonts/fonts/Poppins-SemiBoldLight.ttf
+        - asset: custom_fonts/fonts/Poppins-Thin.ttf
+        - asset: custom_fonts/fonts/Poppins-ThinItalic.ttf
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
