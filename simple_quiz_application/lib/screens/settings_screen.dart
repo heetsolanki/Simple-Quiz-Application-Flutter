@@ -187,6 +187,84 @@ class SettingsState extends State<Settings> {
           ),
           const SizedBox(height: 12),
           Padding(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Help & Feedback',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                IconButton(
+                  tooltip: 'Click on the icon for more information',
+                  icon: Icon(Icons.help_outline),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SizedBox(
+                          height: 200,
+                          child: AlertDialog(
+                            actionsAlignment: MainAxisAlignment.start,
+                            title: Align(
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Contact Me',
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  CloseButton(color: Colors.redAccent),
+                                ],
+                              ),
+                            ),
+                            actions: [
+                              Text(
+                                'You can contact me on my email: heet.solanki@somaiya.edu',
+                              ),
+                              SizedBox(height: 10),
+                              Align(
+                                alignment: Alignment.center,
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                    foregroundColor: Color.fromRGBO(
+                                      0,
+                                      112,
+                                      116,
+                                      1,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    launchUrl(
+                                      Uri.parse(
+                                        'mailto:heet.solanki@somaiya.edu',
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Email Me',
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Padding(
             padding: const EdgeInsets.only(left: 40, right: 40),
             child: Column(
               children: <Widget>[
