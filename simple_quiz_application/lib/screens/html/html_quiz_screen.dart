@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../quiz_screen.dart';
+import 'package:simple_quiz_application/exports.dart';
 
 int htmlBeginnerMarks = 0;
 int htmlIntermediateMarks = 0;
