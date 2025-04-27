@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.3
+  url_launcher: ^6.3.1
+  font_awesome_flutter: ^10.8.0
+  simple_icons: ^14.6.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -65,7 +68,7 @@ flutter:
         - asset: custom_fonts/fonts/Poppins-Bold.ttf
         - asset: custom_fonts/fonts/Poppins-BoldItalic.ttf
         - asset: custom_fonts/fonts/Poppins-ExtraBold.ttf
-        - asset: custom_fonts/fonts/Poppins-ExtraBoldLight.ttf
+        - asset: custom_fonts/fonts/Poppins-ExtraBoldItalic.ttf
         - asset: custom_fonts/fonts/Poppins-ExtraLight.ttf
         - asset: custom_fonts/fonts/Poppins-ExtraLightItalic.ttf
         - asset: custom_fonts/fonts/Poppins-Italic.ttf
@@ -75,7 +78,7 @@ flutter:
         - asset: custom_fonts/fonts/Poppins-MediumItalic.ttf
         - asset: custom_fonts/fonts/Poppins-Regular.ttf
         - asset: custom_fonts/fonts/Poppins-Semibold.ttf
-        - asset: custom_fonts/fonts/Poppins-SemiBoldLight.ttf
+        - asset: custom_fonts/fonts/Poppins-SemiBoldItalic.ttf
         - asset: custom_fonts/fonts/Poppins-Thin.ttf
         - asset: custom_fonts/fonts/Poppins-ThinItalic.ttf
   uses-material-design: true
