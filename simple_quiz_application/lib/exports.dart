@@ -1,6 +1,8 @@
 export 'package:flutter/material.dart';
 export 'package:provider/provider.dart';
+export "package:simple_icons/simple_icons.dart";
 export 'package:smooth_list_view/smooth_list_view.dart';
+export 'package:url_launcher/url_launcher.dart';
 
 export 'questions_card.dart';
 export 'screens/home_screen.dart';
