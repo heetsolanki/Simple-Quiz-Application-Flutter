@@ -35,7 +35,7 @@ class SettingsState extends State<Settings> {
 
   // LinkedIn URL
   _launchLinkedInURL() async {
-    var _url = Uri.parse('www.linkedin.com/in/heetsolanki');
+    var _url = Uri.parse('https://linkedin.com/in/heetsolanki');
     if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
       throw Exception("Could not launch $_url");
     }
