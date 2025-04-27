@@ -215,28 +215,6 @@ class MainPageState extends State<MainPage> {
         ),
       ),
       body: _screens[_currentIndex],
-      // bottomNavigationBar: BottomNavigationBar(
-      //   iconSize: 20,
-      //   unselectedItemColor: Colors.grey,
-      //   selectedItemColor: const Color.fromRGBO(0, 112, 116, 1),
-      //   currentIndex: _currentIndex,
-      //   onTap: _onItemTapped,
-      //   items: [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.question_answer),
-      //       label: 'Quiz',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.leaderboard),
-      //       label: 'Marks',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.settings),
-      //       label: 'Settings',
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
