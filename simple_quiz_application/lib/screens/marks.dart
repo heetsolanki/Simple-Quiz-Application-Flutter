@@ -31,6 +31,9 @@ class MarksState extends State<Marks> {
               SizedBox(
                 width: 350,
                 child: ExpansionTile(
+                  expansionAnimationStyle: AnimationStyle(
+                    duration: Duration(milliseconds: 350),
+                  ),
                   childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
                   expandedAlignment: Alignment.centerLeft,
                   title: Text(
@@ -147,7 +150,7 @@ class MarksState extends State<Marks> {
                             _refreshMarks();
                           },
                           child: Text(
-                            quizAttempts['htmlIntermediateQuiz'] == true
+                            quizAttempts['htmlDifficultQuiz'] == true
                                 ? 'Reattempt'
                                 : 'Attempt',
                           ),
@@ -162,6 +165,9 @@ class MarksState extends State<Marks> {
               SizedBox(
                 width: 350,
                 child: ExpansionTile(
+                  expansionAnimationStyle: AnimationStyle(
+                    duration: Duration(milliseconds: 350),
+                  ),
                   childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
                   expandedAlignment: Alignment.centerLeft,
                   title: Text(
@@ -239,7 +245,7 @@ class MarksState extends State<Marks> {
                             _refreshMarks();
                           },
                           child: Text(
-                            quizAttempts['javaIntermediateQuiz'] == true
+                            quizAttempts['javaDifficultQuiz'] == true
                                 ? 'Reattempt'
                                 : 'Attempt',
                           ),
@@ -247,7 +253,7 @@ class MarksState extends State<Marks> {
                       ],
                     ),
                     SizedBox(height: 10),
-                    // HTML Difficult Row
+                    // Java Difficult Row
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -279,6 +285,275 @@ class MarksState extends State<Marks> {
                           },
                           child: Text(
                             quizAttempts['javaIntermediateQuiz'] == true
+                                ? 'Reattempt'
+                                : 'Attempt',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15),
+              // C# Marks
+              SizedBox(
+                width: 350,
+                child: ExpansionTile(
+                  expansionAnimationStyle: AnimationStyle(
+                    duration: Duration(milliseconds: 350),
+                  ),
+                  childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                  expandedAlignment: Alignment.centerLeft,
+                  title: Text(
+                    'C#',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  children: [
+                    // C# Beginner Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Beginner Marks: '
+                          '${quizAttempts['csharpBeginnerQuiz'] == true ? '$csharpBeginnerMarks/10' : 'NA'}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 13,
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              csharpBeginnerMarks = 0;
+                              quizAttempts['csharpBeginnerQuiz'] = false;
+                            });
+                            await Navigator.pushNamed(
+                              context,
+                              '/csharpBeginnerQuiz',
+                            );
+                            _refreshMarks();
+                          },
+                          child: Text(
+                            quizAttempts['csharpBeginnerQuiz'] == true
+                                ? 'Reattempt'
+                                : 'Attempt',
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    // C# Intermediate Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Intermediate Marks: '
+                          '${quizAttempts['csharpIntermediateQuiz'] == true ? '$csharpIntermediateMarks/10' : 'NA'}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 13,
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              csharpIntermediateMarks = 0;
+                              quizAttempts['csharpIntermediateQuiz'] = false;
+                            });
+                            await Navigator.pushNamed(
+                              context,
+                              '/csharpIntermediateQuiz',
+                            );
+                            _refreshMarks();
+                          },
+                          child: Text(
+                            quizAttempts['csharpIntermediateQuiz'] == true
+                                ? 'Reattempt'
+                                : 'Attempt',
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    // C# Difficult Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Difficult Marks: '
+                          '${quizAttempts['csharpDifficultQuiz'] == true ? '$csharpDifficultMarks/10' : 'NA'}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 13,
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              csharpDifficultMarks = 0;
+                              quizAttempts['csharpDifficultQuiz'] = false;
+                            });
+                            await Navigator.pushNamed(
+                              context,
+                              '/csharpDifficultQuiz',
+                            );
+                            _refreshMarks();
+                          },
+                          child: Text(
+                            quizAttempts['csharpDifficultQuiz'] == true
+                                ? 'Reattempt'
+                                : 'Attempt',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15),
+              // JavaScript Marks
+              SizedBox(
+                width: 350,
+                child: ExpansionTile(
+                  expansionAnimationStyle: AnimationStyle(
+                    duration: Duration(milliseconds: 350),
+                  ),
+                  childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                  expandedAlignment: Alignment.centerLeft,
+                  title: Text(
+                    'JavaScript',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  children: [
+                    // JavaScript Beginner Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Beginner Marks: '
+                          '${quizAttempts['javascriptBeginnerQuiz'] == true ? '$javascriptBeginnerMarks/10' : 'NA'}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 13,
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              javascriptBeginnerMarks = 0;
+                              quizAttempts['javascriptBeginnerQuiz'] = false;
+                            });
+                            await Navigator.pushNamed(
+                              context,
+                              '/javascriptBeginnerQuiz',
+                            );
+                            _refreshMarks();
+                          },
+                          child: Text(
+                            quizAttempts['javascriptBeginnerQuiz'] == true
+                                ? 'Reattempt'
+                                : 'Attempt',
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    // JavaScript Intermediate Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Intermediate Marks: '
+                          '${quizAttempts['javascriptIntermediateQuiz'] == true ? '$javascriptIntermediateMarks/10' : 'NA'}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 13,
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              javascriptIntermediateMarks = 0;
+                              quizAttempts['javascriptIntermediateQuiz'] =
+                                  false;
+                            });
+                            await Navigator.pushNamed(
+                              context,
+                              '/javascriptIntermediateQuiz',
+                            );
+                            _refreshMarks();
+                          },
+                          child: Text(
+                            quizAttempts['javascriptIntermediateQuiz'] == true
+                                ? 'Reattempt'
+                                : 'Attempt',
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    // JavaScript Difficult Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Difficult Marks: '
+                          '${quizAttempts['javascriptDifficultQuiz'] == true ? '$javascriptDifficultMarks/10' : 'NA'}',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 13,
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              javascriptDifficultMarks = 0;
+                              quizAttempts['javascriptDifficultQuiz'] = false;
+                            });
+                            await Navigator.pushNamed(
+                              context,
+                              '/javascriptDifficultQuiz',
+                            );
+                            _refreshMarks();
+                          },
+                          child: Text(
+                            quizAttempts['javaDifficultQuiz'] == true
                                 ? 'Reattempt'
                                 : 'Attempt',
                           ),
