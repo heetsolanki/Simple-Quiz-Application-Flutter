@@ -46,10 +46,10 @@ class SettingsState extends State<Settings> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           const Text(
             'Settings',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 12),
           Padding(
