@@ -1,4 +1,5 @@
 export 'package:flutter/material.dart';
+export 'package:flutter/services.dart';
 export 'package:provider/provider.dart';
 export "package:simple_icons/simple_icons.dart";
 export 'package:smooth_list_view/smooth_list_view.dart';
