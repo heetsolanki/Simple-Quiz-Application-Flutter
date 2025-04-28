@@ -89,18 +89,33 @@ class MyApp extends StatelessWidget {
       themeMode: themeNotifier.currentTheme,
       home: const MainPage(),
       routes: {
+        // Main Screens
         '/home': (context) => const Home(),
         '/quiz': (context) => const Quiz(),
+        '/settings': (context) => const Settings(),
+        '/marks': (context) => const Marks(),
+        // CSharp Screens
+        '/csharpQuiz': (context) => const CSharpQuiz(),
+        '/csharpBeginnerQuiz': (context) => const CSharpBeginnerQuiz(),
+        '/csharpIntermediateQuiz': (context) => const CSharpIntermediateQuiz(),
+        '/csharpDifficultQuiz': (context) => const CSharpDifficultQuiz(),
+        // Html Screens
         '/htmlQuiz': (context) => const HtmlQuiz(),
         '/htmlBeginnerQuiz': (context) => const HtmlBeginnerQuiz(),
         '/htmlIntermediateQuiz': (context) => const HtmlIntermediateQuiz(),
         '/htmlDifficultQuiz': (context) => const HtmlDifficultQuiz(),
+        // Java Screens
         '/javaQuiz': (context) => const JavaQuiz(),
         '/javaBeginnerQuiz': (context) => const JavaBeginnerQuiz(),
         '/javaIntermediateQuiz': (context) => const JavaIntermediateQuiz(),
         '/javaDifficultQuiz': (context) => const JavaDifficultQuiz(),
-        '/settings': (context) => const Settings(),
-        '/marks': (context) => const Marks(),
+        // JavaScript Screens
+        '/javascriptQuiz': (context) => const JavaScriptQuiz(),
+        '/javascriptBeginnerQuiz': (context) => const JavaScriptBeginnerQuiz(),
+        '/javascriptIntermediateQuiz':
+            (context) => const JavaScriptIntermediateQuiz(),
+        '/javascriptDifficultQuiz':
+            (context) => const JavaScriptDifficultQuiz(),
       },
     );
   }
