@@ -7,6 +7,12 @@ Map<String, bool> quizAttempts = {
   'htmlBeginnerQuiz': false,
   'htmlIntermediateQuiz': false,
   'htmlDifficultQuiz': false,
+  'javascriptBeginnerQuiz': false,
+  'javascriptIntermediateQuiz': false,
+  'javascriptDifficultQuiz': false,
+  'csharpBeginnerQuiz': false,
+  'csharpIntermediateQuiz': false,
+  'csharpDifficultQuiz': false,
 };
 Color activeColor = const Color.fromRGBO(0, 112, 116, 1);
 
@@ -105,89 +111,89 @@ class QuizState extends State<Quiz> {
               ),
             ),
             SizedBox(height: 15),
-            // Card(
-            //   child: Container(
-            //     padding: const EdgeInsets.all(20),
-            //     height: 100,
-            //     width: 350,
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         SizedBox(
-            //           width: 175,
-            //           child: Row(
-            //             children: [
-            //               Image.asset('assets/images/C-Sharp.png', height: 75),
-            //               const Text(
-            //                 'C# Quiz',
-            //                 style: TextStyle(
-            //                   fontSize: 20,
-            //                   fontWeight: FontWeight.w500,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         ElevatedButton(
-            //           style: ElevatedButton.styleFrom(
-            //             padding: const EdgeInsets.symmetric(
-            //               horizontal: 15,
-            //               vertical: 15,
-            //             ),
-            //           ),
-            //           onPressed: () {
-            //             Navigator.pushNamed(context, '/htmlQuiz');
-            //           },
-            //           child: const Text("Start Quiz"),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(height: 15),
-            // Card(
-            //   child: Container(
-            //     padding: const EdgeInsets.all(20),
-            //     height: 100,
-            //     width: 350,
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         SizedBox(
-            //           width: 175,
-            //           child: Row(
-            //             children: [
-            //               Image.asset(
-            //                 'assets/images/JavaScript.png',
-            //                 height: 75,
-            //               ),
-            //               const Text(
-            //                 'JavaScript\nQuiz',
-            //                 style: TextStyle(
-            //                   fontSize: 20,
-            //                   fontWeight: FontWeight.w500,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         ElevatedButton(
-            //           style: ElevatedButton.styleFrom(
-            //             padding: const EdgeInsets.symmetric(
-            //               horizontal: 15,
-            //               vertical: 15,
-            //             ),
-            //           ),
-            //           onPressed: () {
-            //             Navigator.pushNamed(context, '/htmlQuiz');
-            //           },
-            //           child: const Text("Start Quiz"),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(height: 15),
+            Card(
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                height: 100,
+                width: 350,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 175,
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/C-Sharp.png', height: 75),
+                          const Text(
+                            'C# Quiz',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 15,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/csharpQuiz');
+                      },
+                      child: const Text("Start Quiz"),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 15),
+            Card(
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                height: 100,
+                width: 350,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 175,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/JavaScript.png',
+                            height: 75,
+                          ),
+                          const Text(
+                            'JavaScript\nQuiz',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 15,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/javascriptQuiz');
+                      },
+                      child: const Text("Start Quiz"),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 15),
           ],
         ),
       ),
