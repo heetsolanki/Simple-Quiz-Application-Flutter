@@ -22,24 +22,32 @@ class QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Card(
               child: Container(
                 padding: const EdgeInsets.all(20),
-                height: 150,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                height: 100,
+                width: 350,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'HTML Quiz',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: 175,
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/HTML.png', height: 75),
+                          const Text(
+                            'HTML Quiz',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 15),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
@@ -56,22 +64,30 @@ class QuizState extends State<Quiz> {
                 ),
               ),
             ),
-            const SizedBox(width: 20),
+            SizedBox(height: 15),
             Card(
               child: Container(
                 padding: const EdgeInsets.all(20),
-                height: 150,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                height: 100,
+                width: 350,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Java Quiz',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: 175,
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/Java.png', height: 75),
+                          const Text(
+                            'Java Quiz',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 15),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
@@ -88,6 +104,90 @@ class QuizState extends State<Quiz> {
                 ),
               ),
             ),
+            SizedBox(height: 15),
+            // Card(
+            //   child: Container(
+            //     padding: const EdgeInsets.all(20),
+            //     height: 100,
+            //     width: 350,
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         SizedBox(
+            //           width: 175,
+            //           child: Row(
+            //             children: [
+            //               Image.asset('assets/images/C-Sharp.png', height: 75),
+            //               const Text(
+            //                 'C# Quiz',
+            //                 style: TextStyle(
+            //                   fontSize: 20,
+            //                   fontWeight: FontWeight.w500,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         ElevatedButton(
+            //           style: ElevatedButton.styleFrom(
+            //             padding: const EdgeInsets.symmetric(
+            //               horizontal: 15,
+            //               vertical: 15,
+            //             ),
+            //           ),
+            //           onPressed: () {
+            //             Navigator.pushNamed(context, '/htmlQuiz');
+            //           },
+            //           child: const Text("Start Quiz"),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(height: 15),
+            // Card(
+            //   child: Container(
+            //     padding: const EdgeInsets.all(20),
+            //     height: 100,
+            //     width: 350,
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         SizedBox(
+            //           width: 175,
+            //           child: Row(
+            //             children: [
+            //               Image.asset(
+            //                 'assets/images/JavaScript.png',
+            //                 height: 75,
+            //               ),
+            //               const Text(
+            //                 'JavaScript\nQuiz',
+            //                 style: TextStyle(
+            //                   fontSize: 20,
+            //                   fontWeight: FontWeight.w500,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         ElevatedButton(
+            //           style: ElevatedButton.styleFrom(
+            //             padding: const EdgeInsets.symmetric(
+            //               horizontal: 15,
+            //               vertical: 15,
+            //             ),
+            //           ),
+            //           onPressed: () {
+            //             Navigator.pushNamed(context, '/htmlQuiz');
+            //           },
+            //           child: const Text("Start Quiz"),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(height: 15),
           ],
         ),
       ),
