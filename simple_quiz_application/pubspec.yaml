@@ -57,31 +57,30 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+  uses-material-design: true
+  assets:
+    - assets/images/
   fonts:
     - family: Poppins
       fonts:
-        - asset: custom_fonts/fonts/Poppins-Black.ttf
-        - asset: custom_fonts/fonts/Poppins-BlackItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-Bold.ttf
-        - asset: custom_fonts/fonts/Poppins-BoldItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-ExtraBold.ttf
-        - asset: custom_fonts/fonts/Poppins-ExtraBoldItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-ExtraLight.ttf
-        - asset: custom_fonts/fonts/Poppins-ExtraLightItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-Italic.ttf
-        - asset: custom_fonts/fonts/Poppins-Light.ttf
-        - asset: custom_fonts/fonts/Poppins-LightItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-Medium.ttf
-        - asset: custom_fonts/fonts/Poppins-MediumItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-Regular.ttf
-        - asset: custom_fonts/fonts/Poppins-Semibold.ttf
-        - asset: custom_fonts/fonts/Poppins-SemiBoldItalic.ttf
-        - asset: custom_fonts/fonts/Poppins-Thin.ttf
-        - asset: custom_fonts/fonts/Poppins-ThinItalic.ttf
-  uses-material-design: true
+        - asset: assets/fonts/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins-BlackItalic.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins-BoldItalic.ttf
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
+        - asset: assets/fonts/Poppins-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Poppins-ExtraLight.ttf
+        - asset: assets/fonts/Poppins-ExtraLightItalic.ttf
+        - asset: assets/fonts/Poppins-Italic.ttf
+        - asset: assets/fonts/Poppins-Light.ttf
+        - asset: assets/fonts/Poppins-LightItalic.ttf
+        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Semibold.ttf
+        - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
+        - asset: assets/fonts/Poppins-Thin.ttf
+        - asset: assets/fonts/Poppins-ThinItalic.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
