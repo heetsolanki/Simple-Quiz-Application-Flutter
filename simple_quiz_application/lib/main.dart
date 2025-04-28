@@ -1,8 +1,15 @@
 import 'exports.dart';
 
-void main() => runApp(
-  ChangeNotifierProvider(create: (_) => ThemeNotifier(), child: const MyApp()),
-);
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
