@@ -13,69 +13,72 @@ class JavaScriptBeginnerQuizState extends State<JavaScriptBeginnerQuiz> {
 
   final List<Map<String, dynamic>> questions = [
     {
-      'question': '1. What does JavaScript stand for?',
+      'question':
+          '1. What is the correct syntax to print "Hello, World!" to the console in JavaScript?',
       'options': [
-        'Home Tool Markup Language',
-        'Hyper Text Markup Language',
-        'Hyper Tabular Markup Language',
-        'High Text Markup Language',
+        'console.log("Hello, World!");',
+        'print("Hello, World!");',
+        'System.out.println("Hello, World!");',
+        'echo "Hello, World!";',
       ],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question': '2. Which tag is used to create a paragraph in JavaScript?',
-      'options': ['<text>', '<paragraph>', '<p>', '<para>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question': '3. Which tag is used to create a line break?',
-      'options': ['<newline>', '<br>', '<break>', '<lb>'],
-      'correctAnswer': 1, // b
+      'correctAnswer': 0, // a
     },
     {
       'question':
-          '4. What is the correct JavaScript tag for the largest heading?',
-      'options': ['<heading>', '<h6>', '<head>', '<h1>'],
+          '2. Which keyword is used to declare a variable in JavaScript?',
+      'options': ['var', 'int', 'string', 'class'],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question':
+          '3. What is the default value of an uninitialized variable in JavaScript?',
+      'options': ['null', '0', 'undefined', 'false'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question': '4. Which of these is a valid variable name in JavaScript?',
+      'options': ['2variable', 'variable-name', 'my variable', 'myVariable'],
       'correctAnswer': 3, // d
     },
     {
-      'question':
-          '5. Which attribute is used to specify the source of an image in an <img> tag?',
-      'options': ['alt', 'link', 'src', 'href'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question':
-          '6. Which JavaScript tag is used to create an unordered list?',
-      'options': ['<list>', '<li>', '<ul>', '<ol>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question': '7. What is the purpose of the <title> tag in JavaScript?',
+      'question': '5. What does the alert() function do in JavaScript?',
       'options': [
-        'To create a heading on the page',
-        'To set the title of the webpage displayed in the browser tab',
-        'To link to an external stylesheet',
-        'To define the main content of the page',
+        'Logs a message to the console',
+        'Displays a dialog box with a message',
+        'Redirects to a new page',
+        'Changes the page’s title',
       ],
       'correctAnswer': 1, // b
     },
     {
       'question':
-          '8. Which JavaScript tag is used to emphasize text, typically displaying it in italics?',
-      'options': ['<b>', '<i>', '<em>', '<strong>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question': '9. Which tag is used to create a table in JavaScript?',
-      'options': ['<tbl>', '<grid>', '<table>', '<tab>'],
+          '6. Which data type is used to represent true/false values in JavaScript?',
+      'options': ['string', 'number', 'boolean', 'object'],
       'correctAnswer': 2, // c
     },
     {
       'question':
-          '10. What is the correct JavaScript tag to include an external stylesheet?',
-      'options': ['<script>', '<css>', '<link>', '<style>'],
+          '7. What symbol is used for single-line comments in JavaScript?',
+      'options': ['#', '/* */', '//', '<!-- -->'],
       'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '8. Which operator is used to compare two values for equality in JavaScript (including type)?',
+      'options': ['=', '==', '===', '!='],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '9. What is the output of the following code: console.log(5 + "3");?',
+      'options': ['8', '53', '15', 'Error'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '10. Which keyword is used to define a function in JavaScript?',
+      'options': ['method', 'function', 'def', 'lambda'],
+      'correctAnswer': 1, // b
     },
   ];
 

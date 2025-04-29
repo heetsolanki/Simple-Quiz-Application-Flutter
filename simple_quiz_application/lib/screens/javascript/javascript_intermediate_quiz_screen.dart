@@ -15,78 +15,85 @@ class JavaScriptIntermediateQuizState
 
   final List<Map<String, dynamic>> questions = [
     {
-      'question':
-          '1. Which JavaScript element is used to define a navigation section?',
-      'options': ['<nav>', '<menu>', '<header>', '<section>'],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question': '2. What does the <form> tag’s method attribute specify?',
+      'question': '1. What is the purpose of the let keyword in JavaScript?',
       'options': [
-        'The type of input fields',
-        'The HTTP method for sending form data',
-        'The validation rules',
-        'The styling of the form',
-      ],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question':
-          '3. Which attribute makes an input field mandatory in a form?',
-      'options': ['mandatory', 'required', 'validate', 'essential'],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question':
-          '4. Which JavaScript5 element is used to group related form elements?',
-      'options': ['<group>', '<fieldset>', '<formgroup>', '<section>'],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question': '5. What is the purpose of the <meta charset="UTF-8"> tag?',
-      'options': [
-        'To set the webpage’s language',
-        'To specify the character encoding for the document',
-        'To define the page’s title',
-        'To link to an external font',
-      ],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question': '6. Which tag is used to create a dropdown menu in a form?',
-      'options': ['<dropdown>', '<select>', '<menu>', '<option>'],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question': '7. What does the rel attribute in a <link> tag specify?',
-      'options': [
-        'The relationship between the current document and the linked resource',
-        'The URL of the linked resource',
-        'The type of the linked file',
-        'The media query for the link',
+        'To declare a block-scoped variable',
+        'To define a constant',
+        'To declare a global variable',
+        'To create a function',
       ],
       'correctAnswer': 0, // a
     },
     {
       'question':
-          '8. Which JavaScript5 element is used to define a footer for a document or section?',
-      'options': ['<bottom>', '<footer>', '<end>', '<base>'],
-      'correctAnswer': 1, // b
+          '2. Which method is used to add an element to the end of an array in JavaScript?',
+      'options': ['push()', 'pop()', 'shift()', 'unshift()'],
+      'correctAnswer': 0, // a
     },
     {
       'question':
-          '9. What is the purpose of the alt attribute in an <img> tag?',
+          '3. What does the this keyword refer to in a JavaScript function?',
       'options': [
-        'To specify the image’s alignment',
-        'To provide alternative text for accessibility',
-        'To set the image’s source URL',
-        'To define the image’s size',
+        'The global object',
+        'The function itself',
+        'The object the function is a method of',
+        'The parent function',
+      ],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '4. Which error is thrown when trying to access a property of undefined?',
+      'options': [
+        'ReferenceError',
+        'TypeError',
+        'SyntaxError',
+        'NullPointerException',
       ],
       'correctAnswer': 1, // b
     },
     {
-      'question': '10. Which attribute is used to open a link in a new tab?',
-      'options': ['new', 'target="_blank"', 'open', 'href'],
+      'question':
+          '5. What is the output of the following code: let x = [1, 2]; x[2] = 3; console.log(x.length);?',
+      'options': ['2', '3', '4', 'Error'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '6. Which method is used to iterate over an array and create a new array based on the results?',
+      'options': ['forEach()', 'map()', 'filter()', 'reduce()'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question': '7. What does the bind() method do in JavaScript?',
+      'options': [
+        'Executes a function immediately',
+        'Creates a new function with a specified this value',
+        'Combines two functions',
+        'Removes a function from an object',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question': '8. What is the purpose of the closure in JavaScript?',
+      'options': [
+        'To prevent variable declaration',
+        'To allow a function to access variables from an outer scope',
+        'To lock a function’s execution',
+        'To create a new object',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '9. What is the output of the following code: console.log(typeof null);?',
+      'options': ['null', 'object', 'undefined', 'string'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '10. Which keyword is used to define a class in JavaScript (ES6+)?',
+      'options': ['struct', 'class', 'type', 'object'],
       'correctAnswer': 1, // b
     },
   ];

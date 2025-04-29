@@ -13,67 +13,69 @@ class CSharpBeginnerQuizState extends State<CSharpBeginnerQuiz> {
 
   final List<Map<String, dynamic>> questions = [
     {
-      'question': '1. What does CSharp stand for?',
+      'question':
+          '1. What is the correct syntax to print "Hello, World!" to the console in C#?',
       'options': [
-        'Home Tool Markup Language',
-        'Hyper Text Markup Language',
-        'Hyper Tabular Markup Language',
-        'High Text Markup Language',
+        'Console.WriteLine("Hello, World!");',
+        'print("Hello, World!");',
+        'System.out.println("Hello, World!");',
+        'echo "Hello, World!";',
       ],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '2. Which keyword is used to define a class in C#?',
+      'options': ['struct', 'class', 'type', 'object'],
       'correctAnswer': 1, // b
     },
     {
-      'question': '2. Which tag is used to create a paragraph in CSharp?',
-      'options': ['<text>', '<paragraph>', '<p>', '<para>'],
+      'question':
+          '3. What is the default value of an uninitialized int variable in C#?',
+      'options': ['null', '-1', '0', 'undefined'],
       'correctAnswer': 2, // c
     },
     {
-      'question': '3. Which tag is used to create a line break?',
-      'options': ['<newline>', '<br>', '<break>', '<lb>'],
+      'question': '4. Which of these is a valid variable name in C#?',
+      'options': ['2variable', 'variable-name', 'my_variable', '@variable'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question': '5. What is the purpose of the Main method in a C# program?',
+      'options': [
+        'To initialize variables',
+        'To define a class constructor',
+        'To serve as the entry point for the program',
+        'To handle exceptions',
+      ],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '6. Which data type is used to store a single character in C#?',
+      'options': ['string', 'char', 'int', 'bool'],
       'correctAnswer': 1, // b
     },
     {
-      'question': '4. What is the correct CSharp tag for the largest heading?',
-      'options': ['<heading>', '<h6>', '<head>', '<h1>'],
+      'question': '7. What symbol is used for single-line comments in C#?',
+      'options': ['#', '/* */', '//', '<!-- -->'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question':
+          '8. Which operator is used to compare two values for equality in C#?',
+      'options': ['=', '==', '===', '!='],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '9. What is the output of the following code: Console.WriteLine(5 + 3);?',
+      'options': ['53', '5 + 3', '8', 'Error'],
+      'correctAnswer': 2, // c
+    },
+    {
+      'question': '10. Which keyword is used to create an object in C#?',
+      'options': ['create', 'instance', 'object', 'new'],
       'correctAnswer': 3, // d
-    },
-    {
-      'question':
-          '5. Which attribute is used to specify the source of an image in an <img> tag?',
-      'options': ['alt', 'link', 'src', 'href'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question': '6. Which CSharp tag is used to create an unordered list?',
-      'options': ['<list>', '<li>', '<ul>', '<ol>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question': '7. What is the purpose of the <title> tag in CSharp?',
-      'options': [
-        'To create a heading on the page',
-        'To set the title of the webpage displayed in the browser tab',
-        'To link to an external stylesheet',
-        'To define the main content of the page',
-      ],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question':
-          '8. Which CSharp tag is used to emphasize text, typically displaying it in italics?',
-      'options': ['<b>', '<i>', '<em>', '<strong>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question': '9. Which tag is used to create a table in CSharp?',
-      'options': ['<tbl>', '<grid>', '<table>', '<tab>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question':
-          '10. What is the correct CSharp tag to include an external stylesheet?',
-      'options': ['<script>', '<css>', '<link>', '<style>'],
-      'correctAnswer': 2, // c
     },
   ];
 
@@ -96,7 +98,7 @@ class CSharpBeginnerQuizState extends State<CSharpBeginnerQuiz> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'CSharp Beginner Quiz',
+          'C# Beginner Quiz',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),

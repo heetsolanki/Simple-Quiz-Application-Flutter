@@ -13,88 +13,92 @@ class CSharpDifficultQuizState extends State<CSharpDifficultQuiz> {
 
   final List<Map<String, dynamic>> questions = [
     {
-      'question': '1. Which CSharp5 element is used to embed audio files?',
-      'options': ['<track>', '<media>', '<audio>', '<sound>'],
+      'question': '1. What is the purpose of the volatile keyword in C#?',
+      'options': [
+        'To prevent method overriding',
+        'To ensure thread-safe visibility of variables',
+        'To mark a variable as immutable',
+        'To allow garbage collection',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question': '2. Which of these is true about a record type in C# 9.0+?',
+      'options': [
+        'It is mutable by default',
+        'It supports value-based equality by default',
+        'It cannot have properties',
+        'It is used only for asynchronous operations',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '3. What is the output of the following code: int? x = null; Console.WriteLine(x ?? 10);?',
+      'options': ['null', '0', '10', 'Error'],
       'correctAnswer': 2, // c
     },
     {
-      'question': '2. What is the purpose of the data-* attribute in CSharp5?',
+      'question':
+          '4. Which attribute is used to mark a method as conditionally executed based on a preprocessor symbol?',
       'options': [
-        'To validate form data',
-        'To link to external data sources',
-        'To store custom data private to the page or application',
-        'To define the data type of an element',
+        'Obsolete',
+        'Conditional',
+        'DebuggerStepThrough',
+        'CallerMemberName',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '5. What is the purpose of the async and await keywords in C#?',
+      'options': [
+        'To define synchronous methods',
+        'To enable asynchronous programming',
+        'To handle exceptions',
+        'To create parallel threads',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '6. Which LINQ method is used to select distinct elements from a collection?',
+      'options': ['Unique', 'Distinct', 'Select', 'Where'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '7. What happens when a Task is not awaited in an async method?',
+      'options': [
+        'The method throws an exception',
+        'The Task runs synchronously',
+        'The Task runs asynchronously and may not complete before the method returns',
+        'The program terminates',
       ],
       'correctAnswer': 2, // c
     },
     {
       'question':
-          '3. Which ARIA attribute improves accessibility for screen readers by describing an element’s purpose?',
+          '8. Which C# feature allows pattern matching with switch expressions (C# 8.0+)?',
       'options': [
-        'aria-label',
-        'aria-hidden',
-        'aria-disabled',
-        'aria-required',
+        'switch case',
+        'pattern switch',
+        'switch expression',
+        'match expression',
       ],
-      'correctAnswer': 0, // a
+      'correctAnswer': 2, // c
     },
     {
-      'question': '4. What does the <picture> element allow in CSharp5?',
-      'options': [
-        'Embedding multiple images in a gallery',
-        'Providing multiple image sources for different devices',
-        'Creating animated images',
-        'Adding captions to images',
-      ],
+      'question':
+          '9. What is the output of the following code: var list = new List<int> { 1, 2 }; list.RemoveAt(0); Console.WriteLine(list.Count);?',
+      'options': ['0', '1', '2', 'Error'],
       'correctAnswer': 1, // b
     },
     {
       'question':
-          '5. Which attribute specifies the keyboard shortcut for an element?',
-      'options': ['shortcut', 'accesskey', 'key', 'hotkey'],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question': '6. What is the role of the <template> tag in CSharp5?',
-      'options': [
-        'To define reusable CSharp content that can be cloned',
-        'To create a layout for the entire page',
-        'To store CSS styles',
-        'To embed external templates',
-      ],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question':
-          '7. Which CSharp5 attribute is used to defer script execution until the page is fully loaded?',
-      'options': ['async', 'defer', 'load', 'wait'],
-      'correctAnswer': 1, // b
-    },
-    {
-      'question': '8. What does the itemprop attribute in microdata do?',
-      'options': [
-        'Defines the property of an item for structured data',
-        'Specifies the item’s CSS class',
-        'Links to an external item',
-        'Sets the item’s visibility',
-      ],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question':
-          '9. Which CSharp5 element is used to define a scalar measurement, like a gauge or meter?',
-      'options': ['<meter>', '<progress>', '<range>', '<value>'],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question': '10. What is the purpose of the contenteditable attribute?',
-      'options': [
-        'To allow users to edit the content of an element',
-        'To specify the content’s language',
-        'To make an element draggable',
-        'To define the content’s alignment',
-      ],
-      'correctAnswer': 0, // a
+          '10. Which keyword is used to define a property with a private backing field in C# 6.0+?',
+      'options': ['getset', 'auto', 'property', '=>'],
+      'correctAnswer': 3, // d
     },
   ];
 
@@ -117,7 +121,7 @@ class CSharpDifficultQuizState extends State<CSharpDifficultQuiz> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'CSharp Difficult Quiz',
+          'C# Difficult Quiz',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),

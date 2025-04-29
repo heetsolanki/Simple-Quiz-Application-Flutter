@@ -13,89 +13,84 @@ class JavaScriptDifficultQuizState extends State<JavaScriptDifficultQuiz> {
 
   final List<Map<String, dynamic>> questions = [
     {
-      'question': '1. Which JavaScript5 element is used to embed audio files?',
-      'options': ['<track>', '<media>', '<audio>', '<sound>'],
-      'correctAnswer': 2, // c
-    },
-    {
-      'question':
-          '2. What is the purpose of the data-* attribute in JavaScript5?',
+      'question': '1. What is the purpose of the async keyword in JavaScript?',
       'options': [
-        'To validate form data',
-        'To link to external data sources',
-        'To store custom data private to the page or application',
-        'To define the data type of an element',
+        'To define a synchronous function',
+        'To mark a function as asynchronous, returning a Promise',
+        'To execute a function immediately',
+        'To create a generator function',
       ],
-      'correctAnswer': 2, // c
+      'correctAnswer': 1, // b
     },
     {
-      'question':
-          '3. Which ARIA attribute improves accessibility for screen readers by describing an element’s purpose?',
+      'question': '2. What does the Promise.all() method do?',
       'options': [
-        'aria-label',
-        'aria-hidden',
-        'aria-disabled',
-        'aria-required',
-      ],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question': '4. What does the <picture> element allow in JavaScript5?',
-      'options': [
-        'Embedding multiple images in a gallery',
-        'Providing multiple image sources for different devices',
-        'Creating animated images',
-        'Adding captions to images',
+        'Resolves a single Promise',
+        'Takes an iterable of Promises and returns a Promise that resolves when all are resolved',
+        'Rejects all Promises',
+        'Executes Promises sequentially',
       ],
       'correctAnswer': 1, // b
     },
     {
       'question':
-          '5. Which attribute specifies the keyboard shortcut for an element?',
-      'options': ['shortcut', 'accesskey', 'key', 'hotkey'],
+          '3. What is the output of the following code: console.log(0.1 + 0.2 === 0.3);?',
+      'options': ['true', 'false', 'undefined', 'Error'],
       'correctAnswer': 1, // b
     },
     {
-      'question': '6. What is the role of the <template> tag in JavaScript5?',
+      'question':
+          '4. Which feature allows JavaScript modules to be imported dynamically?',
+      'options': ['import()', 'require()', 'load()', 'module()'],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '5. What is the purpose of the Symbol type in JavaScript?',
       'options': [
-        'To define reusable JavaScript content that can be cloned',
-        'To create a layout for the entire page',
-        'To store CSS styles',
-        'To embed external templates',
+        'To create unique identifiers for object properties',
+        'To define mathematical symbols',
+        'To represent string literals',
+        'To create immutable objects',
+      ],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '6. What does the Proxy object allow in JavaScript?',
+      'options': [
+        'Creating a copy of an object',
+        'Defining custom behavior for fundamental operations on an object',
+        'Locking an object’s properties',
+        'Converting an object to a string',
+      ],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '7. What is the output of the following code: let x = { a: 1 }; let y = { ...x, b: 2 }; console.log(y.b);?',
+      'options': ['1', '2', 'undefined', 'Error'],
+      'correctAnswer': 1, // b
+    },
+    {
+      'question':
+          '8. Which method is used to flatten a nested array in JavaScript?',
+      'options': ['flat()', 'flatten()', 'reduce()', 'concat()'],
+      'correctAnswer': 0, // a
+    },
+    {
+      'question': '9. What is the purpose of the WeakMap in JavaScript?',
+      'options': [
+        'To store key-value pairs with weak references to keys',
+        'To create a map with strong references',
+        'To store only primitive values',
+        'To prevent garbage collection',
       ],
       'correctAnswer': 0, // a
     },
     {
       'question':
-          '7. Which JavaScript5 attribute is used to defer script execution until the page is fully loaded?',
-      'options': ['async', 'defer', 'load', 'wait'],
+          '10. What is the output of the following code: console.log(!!"false");?',
+      'options': ['false', 'true', 'undefined', '"false"'],
       'correctAnswer': 1, // b
-    },
-    {
-      'question': '8. What does the itemprop attribute in microdata do?',
-      'options': [
-        'Defines the property of an item for structured data',
-        'Specifies the item’s CSS class',
-        'Links to an external item',
-        'Sets the item’s visibility',
-      ],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question':
-          '9. Which JavaScript5 element is used to define a scalar measurement, like a gauge or meter?',
-      'options': ['<meter>', '<progress>', '<range>', '<value>'],
-      'correctAnswer': 0, // a
-    },
-    {
-      'question': '10. What is the purpose of the contenteditable attribute?',
-      'options': [
-        'To allow users to edit the content of an element',
-        'To specify the content’s language',
-        'To make an element draggable',
-        'To define the content’s alignment',
-      ],
-      'correctAnswer': 0, // a
     },
   ];
 
