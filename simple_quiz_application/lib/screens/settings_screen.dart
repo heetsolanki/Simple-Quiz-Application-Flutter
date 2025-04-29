@@ -124,7 +124,7 @@ class SettingsState extends State<Settings> {
                               Text(
                                 'Myself Heet Solanki, an aspiring Flutter Developer. '
                                 'Currently, pursuing BCA (Bachelor of Computer Applications) '
-                                'from Somaiya Vidyavihar University.'
+                                'from Somaiya Vidyavihar University. '
                                 'I also know other languages like C, C#, Java, and Python.\n',
                               ),
                               Text(
