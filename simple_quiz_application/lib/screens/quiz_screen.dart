@@ -31,6 +31,7 @@ class QuizState extends State<Quiz> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // HTML Card
             Card(
               child: Container(
                 padding: const EdgeInsets.all(20),
@@ -43,7 +44,7 @@ class QuizState extends State<Quiz> {
                       width: 175,
                       child: Row(
                         children: [
-                          Image.asset('assets/images/HTML.png', height: 75),
+                          Image.asset('assets/images/HTML.webp', height: 75),
                           const Text(
                             'HTML Quiz',
                             style: TextStyle(
@@ -71,6 +72,7 @@ class QuizState extends State<Quiz> {
               ),
             ),
             SizedBox(height: 15),
+            // Java Card
             Card(
               child: Container(
                 padding: const EdgeInsets.all(20),
@@ -83,7 +85,7 @@ class QuizState extends State<Quiz> {
                       width: 175,
                       child: Row(
                         children: [
-                          Image.asset('assets/images/Java.png', height: 75),
+                          Image.asset('assets/images/Java.webp', height: 75),
                           const Text(
                             'Java Quiz',
                             style: TextStyle(
@@ -111,6 +113,7 @@ class QuizState extends State<Quiz> {
               ),
             ),
             SizedBox(height: 15),
+            // C# Card
             Card(
               child: Container(
                 padding: const EdgeInsets.all(20),
@@ -123,7 +126,7 @@ class QuizState extends State<Quiz> {
                       width: 175,
                       child: Row(
                         children: [
-                          Image.asset('assets/images/C-Sharp.png', height: 75),
+                          Image.asset('assets/images/C-Sharp.webp', height: 75),
                           const Text(
                             'C# Quiz',
                             style: TextStyle(
@@ -151,6 +154,7 @@ class QuizState extends State<Quiz> {
               ),
             ),
             SizedBox(height: 15),
+            // JavaScript Card
             Card(
               child: Container(
                 padding: const EdgeInsets.all(20),
@@ -164,7 +168,7 @@ class QuizState extends State<Quiz> {
                       child: Row(
                         children: [
                           Image.asset(
-                            'assets/images/JavaScript.png',
+                            'assets/images/JavaScript.webp',
                             height: 75,
                           ),
                           const Text(
