@@ -34,6 +34,7 @@ class MarksState extends State<Marks> {
                   expansionAnimationStyle: AnimationStyle(
                     duration: Duration(milliseconds: 350),
                   ),
+                  leading: Image.asset('assets/images/HTML.png', height: 35),
                   childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
                   expandedAlignment: Alignment.centerLeft,
                   title: Text(
@@ -168,6 +169,7 @@ class MarksState extends State<Marks> {
                   expansionAnimationStyle: AnimationStyle(
                     duration: Duration(milliseconds: 350),
                   ),
+                  leading: Image.asset('assets/images/Java.png', height: 35),
                   childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
                   expandedAlignment: Alignment.centerLeft,
                   title: Text(
@@ -302,6 +304,7 @@ class MarksState extends State<Marks> {
                   expansionAnimationStyle: AnimationStyle(
                     duration: Duration(milliseconds: 350),
                   ),
+                  leading: Image.asset('assets/images/C-Sharp.png', height: 35),
                   childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
                   expandedAlignment: Alignment.centerLeft,
                   title: Text(
@@ -435,6 +438,10 @@ class MarksState extends State<Marks> {
                 child: ExpansionTile(
                   expansionAnimationStyle: AnimationStyle(
                     duration: Duration(milliseconds: 350),
+                  ),
+                  leading: Image.asset(
+                    'assets/images/JavaScript.png',
+                    height: 35,
                   ),
                   childrenPadding: EdgeInsets.only(left: 15, top: 5, bottom: 5),
                   expandedAlignment: Alignment.centerLeft,
