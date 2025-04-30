@@ -22,12 +22,13 @@ class HomeState extends State<Home> {
             ),
             const SizedBox(height: 10),
             const Padding(
-              padding: EdgeInsets.only(left: 40, right: 40),
+              padding: EdgeInsets.only(left: 40, right: 40, bottom: 20),
               child: Text(
                 'Test your knowledge fun quizzes on Java, HTML, and more. Ready to begin?',
                 style: TextStyle(fontSize: 18),
               ),
             ),
+            Text('Click on the menu for more options'),
           ],
         ),
       ),
