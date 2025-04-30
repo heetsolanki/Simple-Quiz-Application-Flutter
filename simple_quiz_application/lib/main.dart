@@ -172,10 +172,7 @@ class MainPageState extends State<MainPage> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                        'assets/images/favicon.jpg',
-                        height: 75,
-                    ),
+                    Image.asset('assets/images/favicon.jpg', height: 75),
                     SizedBox(width: 10),
                     Text(
                       'BrainByte',
