@@ -18,7 +18,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.x' # Adjust to your Flutter version (run `flutter --version` locally)
+          flutter-version: '3.29.2' # Adjust to your Flutter version (run `flutter --version` locally)
           channel: 'stable'
 
       # Install dependencies
@@ -36,4 +36,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
-          projectId: your-firebase-project-id # Replace with your Firebase project ID
+          projectId: simplequizapp-heet
