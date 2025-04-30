@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../exports.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -28,7 +28,6 @@ class HomeState extends State<Home> {
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            const SizedBox(height: 12),
           ],
         ),
       ),
