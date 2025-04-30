@@ -18,16 +18,18 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.2' # Adjust to your Flutter version (run `flutter --version` locally)
+          flutter-version: '3.29.2'
           channel: 'stable'
 
       # Install dependencies
       - name: Install dependencies
         run: flutter pub get
+        working-directory: path/to/your/flutter/project
 
       # Build the web app
       - name: Build web app
         run: flutter build web --release
+        working-directory: simple_quiz_application
 
       # Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
