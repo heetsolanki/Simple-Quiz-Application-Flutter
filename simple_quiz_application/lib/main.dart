@@ -165,17 +165,27 @@ class MainPageState extends State<MainPage> {
           children: [
             SizedBox(
               height: 130,
-              child: const DrawerHeader(
+              child: DrawerHeader(
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(0, 112, 116, 1),
                 ),
-                child: Text(
-                  'BrainByte',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                        'assets/images/favicon.jpg',
+                        height: 75,
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      'BrainByte',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
