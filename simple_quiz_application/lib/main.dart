@@ -11,6 +11,8 @@ void main() {
   );
 }
 
+int currentIndex = 0;
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   static const String _title = 'Simple Quiz Application';
@@ -129,12 +131,11 @@ class MainPage extends StatefulWidget {
 }
 
 class MainPageState extends State<MainPage> {
-  int _currentIndex = 0;
   final List<Widget> _screens = const [Home(), Quiz(), Marks(), Settings()];
 
   void _onItemTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      currentIndex = index;
     });
   }
 
@@ -143,7 +144,7 @@ class MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Simple Quiz Application',
+          'BrainByte',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
         backgroundColor: const Color.fromRGBO(0, 112, 116, 1),
@@ -163,13 +164,13 @@ class MainPageState extends State<MainPage> {
           padding: EdgeInsets.zero,
           children: [
             SizedBox(
-              height: 150,
+              height: 130,
               child: const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(0, 112, 116, 1),
                 ),
                 child: Text(
-                  'Simple Quiz Application',
+                  'BrainByte',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -185,7 +186,7 @@ class MainPageState extends State<MainPage> {
                 'Home',
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
-              selected: _currentIndex == 0,
+              selected: currentIndex == 0,
               onTap: () {
                 _onItemTapped(0);
                 Navigator.pop(context);
@@ -199,7 +200,7 @@ class MainPageState extends State<MainPage> {
                 'Quiz',
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
-              selected: _currentIndex == 1,
+              selected: currentIndex == 1,
               onTap: () {
                 _onItemTapped(1);
                 Navigator.pop(context);
@@ -213,7 +214,7 @@ class MainPageState extends State<MainPage> {
                 'Marks',
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
-              selected: _currentIndex == 2,
+              selected: currentIndex == 2,
               onTap: () {
                 _onItemTapped(2);
                 Navigator.pop(context);
@@ -227,7 +228,7 @@ class MainPageState extends State<MainPage> {
                 'Settings',
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
-              selected: _currentIndex == 3,
+              selected: currentIndex == 3,
               onTap: () {
                 _onItemTapped(3);
                 Navigator.pop(context);
@@ -236,7 +237,7 @@ class MainPageState extends State<MainPage> {
           ],
         ),
       ),
-      body: _screens[_currentIndex],
+      body: _screens[currentIndex],
     );
   }
 }
